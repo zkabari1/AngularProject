@@ -1,5 +1,5 @@
 <h2 [textContent]="blogItem.title"></h2>
-<div>{{blogItem.author}}</div>
+<div *ngIf="blogItem.author">{{blogItem.author}}</div>
 <div textContent="{{blogItem.date}}"></div>
 <div>{{blogItem.content}}</div>
 <div class="tools">

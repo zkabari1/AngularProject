@@ -1,0 +1,5 @@
+<section>
+  <mb-blog-item *ngFor="let blogItem of blogItems"
+    [blogItem]="blogItem"
+    (delete)="onBlogItemDelete($event)"></mb-blog-item>
+</section>
