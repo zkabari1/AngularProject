@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BlogItemComponent} from './blog-item.component';
 import { BlogItemListComponent } from './blog-item-list.component';
+import {FavoriteDirective} from './favorite.directive';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { BlogItemListComponent } from './blog-item-list.component';
   declarations: [
     AppComponent,
     BlogItemComponent,
-    BlogItemListComponent
+    BlogItemListComponent,
+    FavoriteDirective
   ],
   bootstrap: [
     AppComponent

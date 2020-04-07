@@ -1,5 +1,7 @@
 <section>
   <mb-blog-item *ngFor="let blogItem of blogItems"
     [blogItem]="blogItem"
-    (delete)="onBlogItemDelete($event)"></mb-blog-item>
+    (delete)="onBlogItemDelete($event)"
+    [ngClass]="{'medium-movies': blogItem.genre==='Thriller', 'medium-series':blogItem.genre==='Inspirational'}">
+  </mb-blog-item>
 </section>
