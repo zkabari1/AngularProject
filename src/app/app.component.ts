@@ -14,4 +14,6 @@ export class AppComponent{
         author:"Vannessa Cronin",
         isFavorite:false
     };
+
+    onBlogItemDelete(blogItem){}
 } 

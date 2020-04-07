@@ -5,5 +5,5 @@
             Publish your passions, your way!!
         </p>
     </header>
-    <mb-blog-item [blogItem]="firstBlogItem"></mb-blog-item>
+    <mb-blog-item (delete)="onBlogItemDelete($event)" [blogItem]="firstBlogItem"></mb-blog-item>
 </section>
