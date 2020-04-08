@@ -31,5 +31,5 @@
         <input name="year" id="year" maxlength="10" type="hidden" formControlName="date"/>
       </li>
     </ul>
-    <button type="submit">Save</button>
+    <button type="submit" [disabled]="!form.valid">Save</button>
   </form>
