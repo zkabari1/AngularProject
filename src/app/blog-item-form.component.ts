@@ -1,14 +1,15 @@
 import { Component , OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
+import {BlogItemService} from './blog-item.service';
 
 @Component({
   selector: 'mb-blog-item-form',
   templateUrl: './blog-item-form.component.html',
   styleUrls: ['./blog-item-form.component.css']
 })
-export class BlogItemFormComponent {
+export class BlogItemFormComponent implements OnInit{
     form : FormGroup;
-    constructor( private formBuilder:FormBuilder){}
+    constructor( private formBuilder:FormBuilder, private blogItemService:BlogItemService){}
 
     ngOnInit(){
         this.form = this.formBuilder.group({
@@ -22,7 +23,7 @@ export class BlogItemFormComponent {
         });
     }
     onSubmit(blogItem){
-        console.log(blogItem);
+        this.blogItemService.add(blogItem);
     }
     
     dateValidator(control:FormControl){
