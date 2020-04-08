@@ -11,6 +11,9 @@
       <li>
         <label for="author">Author</label>
         <input type="text" name="author" id="author" formControlName="author">
+        <div *ngIf="form.get('author').hasError('pattern')" class="error">
+        Author Name can not contain special characters    
+        </div>
       </li>
       <li>
         <label for="content">Content</label>
@@ -28,8 +31,9 @@
         </select>
       </li>
     <li>
-        <input name="year" id="year" maxlength="10" type="hidden" formControlName="date"/>
-      </li>
+        <label for="year">date</label>
+        <input name="year" id="year" maxlength="10" formControlName="date" placeholder="mm/dd/yyyy"/>
+    </li>
     </ul>
     <button type="submit" [disabled]="!form.valid">Save</button>
   </form>

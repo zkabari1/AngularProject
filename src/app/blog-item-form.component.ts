@@ -16,15 +16,23 @@ export class BlogItemFormComponent {
                 Validators.pattern('[\\w\\-\\s\\/]+')])),
             content:new FormControl('',Validators.required),
             category:new FormControl('Action'),
-            date:new FormControl(this.getTodayDate())
-            
+            date:new FormControl('',this.dateValidator),
         });
     }
     onSubmit(blogItem){
         console.log(blogItem);
     }
-    getTodayDate(){
-        var date = new Date();
-        return (date.getMonth()+1)+'/'+date.getDate()+'/'+date.getFullYear();
+    
+    dateValidator(control:FormControl){
+        if(control.value.trim().length === 0){
+            return null;
+        }
+        const date = Date.parse(control.value);
+        if (isNaN(date)) {
+            return  {date:true};
+        }else{
+            return null;
+        }
     }
+    
 }
