@@ -8,6 +8,7 @@ import {CategoryListPipe} from './category.list.pipe';
 import {ReactiveFormsModule} from '@angular/forms';
 import {BlogItemFormComponent} from './blog-item-form.component';
 //import {BlogItemService} from './blog-item.service';
+import {lookupListToken,lookupList} from './providers';
 
 @NgModule({
   imports: [
@@ -25,8 +26,9 @@ import {BlogItemFormComponent} from './blog-item-form.component';
   bootstrap: [
     AppComponent
   ],
- /* providers:[
-    BlogItemService
-  ]*/
+  providers:[
+ //   BlogItemService,
+    {provide:lookupListToken,useValue:lookupList}
+  ]
 })
 export class AppModule {}

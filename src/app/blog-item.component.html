@@ -1,5 +1,6 @@
 <h2 [textContent]="blogItem.title | uppercase"></h2>
 <div *ngIf="blogItem.author">{{blogItem.author}}</div>
+<div textContent="{{blogItem.genre}}"></div>
 <div textContent="{{blogItem.date | date:'shortDate'}}"></div>
 <div>{{blogItem.content | slice: 0: 500}}</div>
 <div class="tools">

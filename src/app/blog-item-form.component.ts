@@ -1,6 +1,7 @@
-import { Component , OnInit} from '@angular/core';
+import { Component , OnInit, Inject} from '@angular/core';
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {BlogItemService} from './blog-item.service';
+import {lookupListToken} from './providers';
 
 @Component({
   selector: 'mb-blog-item-form',
@@ -9,7 +10,8 @@ import {BlogItemService} from './blog-item.service';
 })
 export class BlogItemFormComponent implements OnInit{
     form : FormGroup;
-    constructor( private formBuilder:FormBuilder, private blogItemService:BlogItemService){}
+    constructor( private formBuilder:FormBuilder, private blogItemService:BlogItemService,
+        @Inject(lookupListToken) public lookupList){}
 
     ngOnInit(){
         this.form = this.formBuilder.group({
