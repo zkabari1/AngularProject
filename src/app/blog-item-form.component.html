@@ -1,24 +1,24 @@
 <header>
     <h2>Add New Blog</h2>
   </header>
-<form #blogItemForm="ngForm"
-  (ngSubmit)="onSubmit(blogItemForm.value)">
+<form [formGroup]="form"
+  (ngSubmit)="onSubmit(form.value)">
     <ul>
       <li>
         <label for="name">Title</label>
-        <input type="text" name="name" id="name" ngModel>
+        <input type="text" name="name" id="name" formControlName="title">
       </li>
       <li>
         <label for="author">Author</label>
-        <input type="text" name="author" id="author" ngModel>
+        <input type="text" name="author" id="author" formControlName="author">
       </li>
       <li>
         <label for="content">Content</label>
-        <textarea name="content" id="content" cols="100" rows="5" ngModel></textarea>     
+        <textarea name="content" id="content" cols="100" rows="5" formControlName="content"></textarea>     
       </li>
       <li>
         <label for="category">Genre</label>
-        <select name="category" id="category" ngModel>
+        <select name="category" id="category" formControlName="category">
           <option value="Action">Action</option>
           <option value="Science Fiction">Science Fiction</option>
           <option value="Comedy">Comedy</option>
@@ -28,7 +28,7 @@
         </select>
       </li>
     <li>
-        <input name="year" id="year" maxlength="10" type="hidden" ngModel/>
+        <input name="year" id="year" maxlength="10" type="hidden" formControlName="date"/>
       </li>
     </ul>
     <button type="submit">Save</button>
