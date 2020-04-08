@@ -1,5 +1,5 @@
 import { Component , OnInit} from '@angular/core';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'mb-blog-item-form',
@@ -8,15 +8,17 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class BlogItemFormComponent {
     form : FormGroup;
+    constructor( private formBuilder:FormBuilder){}
+
     ngOnInit(){
-        this.form = new FormGroup({
-            title:new FormControl('',Validators.required),
-            author:new FormControl('',Validators.compose([
+        this.form = this.formBuilder.group({
+            title:this.formBuilder.control('',Validators.required),
+            author:this.formBuilder.control('',Validators.compose([
                 Validators.required,
                 Validators.pattern('[\\w\\-\\s\\/]+')])),
-            content:new FormControl('',Validators.required),
-            category:new FormControl('Action'),
-            date:new FormControl('',this.dateValidator),
+            content:this.formBuilder.control('',Validators.required),
+            category:this.formBuilder.control('Action'),
+            date:this.formBuilder.control('',this.dateValidator),
         });
     }
     onSubmit(blogItem){

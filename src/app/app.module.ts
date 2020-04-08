@@ -7,7 +7,7 @@ import {FavoriteDirective} from './favorite.directive';
 import {CategoryListPipe} from './category.list.pipe';
 import {ReactiveFormsModule} from '@angular/forms';
 import {BlogItemFormComponent} from './blog-item-form.component';
-
+//import {BlogItemService} from './blog-item.service';
 
 @NgModule({
   imports: [
@@ -24,6 +24,9 @@ import {BlogItemFormComponent} from './blog-item-form.component';
   ],
   bootstrap: [
     AppComponent
-  ]
+  ],
+ /* providers:[
+    BlogItemService
+  ]*/
 })
 export class AppModule {}
