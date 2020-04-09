@@ -1,6 +1,9 @@
 <header 
     [ngClass]="{'medium-movies':category === 'Action', 'medium-series':category === 'Romance'}">
-    <div *ngIf="blogItems">{{ blogItems | categoryList }}</div>
+    <mb-category-list 
+      *ngIf="blogItems"
+      [categories]="blogItems | categoryList">
+    </mb-category-list>
     </header>
 <section>
   <mb-blog-item

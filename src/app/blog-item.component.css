@@ -11,6 +11,12 @@ h2 {
   font-size: 1.6em;
   flex: 1;
 }
+:host-context(.medium-movies) .label {
+  background-color: #53ace4;
+}
+:host-context(.medium-series) .label {
+  background-color: #45bf94;
+}
 :host(.medium-movies) {
   border-color: #53ace4;
 }

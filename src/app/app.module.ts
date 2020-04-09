@@ -10,6 +10,7 @@ import {lookupListToken,lookupList} from './providers';
 import {HttpClientModule, HttpXhrBackend} from '@angular/common/http';
 import {MockXHRBackend} from './mock-xhr.backend';
 import { routing } from './app.routing';
+import { CategoryListComponent } from './category-list.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { routing } from './app.routing';
     BlogItemListComponent,
     FavoriteDirective,
     CategoryListPipe,
+    CategoryListComponent
   ],
   bootstrap: [
     AppComponent

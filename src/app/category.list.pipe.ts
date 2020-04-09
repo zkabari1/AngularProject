@@ -12,6 +12,6 @@ export class CategoryListPipe implements PipeTransform{
             categories.push(blogItem.category);
         }
         });
-        return categories.join(', ');
+        return categories;
     }
 }
