@@ -2,6 +2,7 @@ import { Component , OnInit, Inject} from '@angular/core';
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {BlogItemService} from './blog-item.service';
 import {lookupListToken} from './providers';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'mb-blog-item-form',
@@ -10,8 +11,10 @@ import {lookupListToken} from './providers';
 })
 export class BlogItemFormComponent implements OnInit{
     form : FormGroup;
-    constructor( private formBuilder:FormBuilder, private blogItemService:BlogItemService,
-        @Inject(lookupListToken) public lookupList){}
+    constructor( private formBuilder:FormBuilder, 
+        private blogItemService:BlogItemService,
+        @Inject(lookupListToken) public lookupList,
+        private router:Router){}
 
     ngOnInit(){
         this.form = this.formBuilder.group({
@@ -25,7 +28,8 @@ export class BlogItemFormComponent implements OnInit{
         });
     }
     onSubmit(blogItem){
-        this.blogItemService.add(blogItem).subscribe();
+        this.blogItemService.add(blogItem).subscribe(
+            ()=>this.router.navigate(["/",blogItem.category]));
     }
     
     dateValidator(control:FormControl){

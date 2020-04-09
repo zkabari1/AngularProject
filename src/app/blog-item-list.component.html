@@ -1,25 +1,11 @@
-<nav>
-  <a (click)="getBlogItems('')">
-    <img src="assets/04.png" class="icon" />
-  </a>
-  <a (click)="getBlogItems('Action')">
-    <img src="assets/03.png" class="icon" />
-  </a>
-  <a (click)="getBlogItems('Educational')">
-    <img src="assets/edu.png" width="50" height="50" class="icon" />
-  </a>
-  <a (click)="getBlogItems('Romance')" style = "margin-left:20px" >
-    <img src="assets/romance.png" width="40px" height="40px" class="icon" />
-  </a>
-  </nav>
 <header 
-    [ngClass]="{'medium-movies':medium === 'Movies', 'medium-series':medium === 'Series'}">
-    <h2>{{category}}</h2>
+    [ngClass]="{'medium-movies':category === 'Action', 'medium-series':category === 'Romance'}">
     <div *ngIf="blogItems">{{ blogItems | categoryList }}</div>
-</header>
+    </header>
 <section>
   <mb-blog-item
-    [ngClass]="{'medium-movies': blogItem.medium==='Movies', 'medium-series':blogItem.medium==='Series'}" 
+    [ngClass]="{'medium-movies': blogItem.category==='Action', 
+    'medium-series':blogItem.category==='Romance'}" 
     *ngFor="let blogItem of blogItems"
     [blogItem]="blogItem"
     (delete)="onBlogItemDelete($event)"></mb-blog-item>

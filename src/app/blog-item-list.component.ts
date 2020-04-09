@@ -1,5 +1,6 @@
 import {Component,OnInit} from '@angular/core';
 import {BlogItemService, BlogItem} from './blog-item.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector:'mb-blog-item-list',
@@ -10,9 +11,17 @@ import {BlogItemService, BlogItem} from './blog-item.service';
 export class BlogItemListComponent implements OnInit{
     category='';
     blogItems:BlogItem[];
-    constructor(private blogItemService : BlogItemService){}
+    constructor(private blogItemService : BlogItemService,
+        private activatedRoute : ActivatedRoute){}
     ngOnInit() {
-        this.getBlogItems(this.category);
+        this.activatedRoute.paramMap
+        .subscribe(paramMap=>{
+            let category=paramMap.get('category');
+            if(category.toLowerCase()==='all'){
+                category='';
+            }
+            this.getBlogItems(category);
+        })
     }
     onBlogItemDelete(blogItem) { 
         this.blogItemService.delete(blogItem).subscribe(()=>{this.getBlogItems(this.category)});

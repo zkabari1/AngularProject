@@ -11,12 +11,14 @@ import {BlogItemFormComponent} from './blog-item-form.component';
 import {lookupListToken,lookupList} from './providers';
 import {HttpClientModule, HttpXhrBackend} from '@angular/common/http';
 import {MockXHRBackend} from './mock-xhr.backend';
+import { routing } from './app.routing';
 
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    routing
   ],
   declarations: [
     AppComponent,

@@ -1,10 +1,26 @@
+<nav>
+    <a routerLink="/">
+      <img src="assets/04.png" class="icon" />
+    </a>
+    <a routerLink="/Action">
+      <img src="assets/03.png" class="icon" />
+    </a>
+    <a routerLink="/Educational">
+      <img src="assets/edu.png" width="50" height="50" class="icon" />
+    </a>
+    <a routerLink="/Romance">
+      <img src="assets/romance.png" width="40px" height="40px" class="icon" />
+    </a>
+    </nav>
 <section>
     <header>
         <h1>My Blog</h1>
-        <p class="description">
+        <p class="description" >
             Publish your passions, your way!!
         </p>
+        <a routerLink="/add" style="float: right;">
+            <img src="assets/01.png" class="icon" />
+        </a>
     </header>
-    <mb-blog-item-form></mb-blog-item-form>
-    <mb-blog-item-list></mb-blog-item-list>
+    <router-outlet></router-outlet>
 </section>

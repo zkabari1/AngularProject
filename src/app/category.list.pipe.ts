@@ -8,8 +8,8 @@ export class CategoryListPipe implements PipeTransform{
     transform(blogItems){
         const categories = [];
         blogItems.forEach(blogItem => {
-        if (categories.indexOf(blogItem.genre) <= -1) {
-            categories.push(blogItem.genre);
+        if (categories.indexOf(blogItem.category) <= -1) {
+            categories.push(blogItem.category);
         }
         });
         return categories.join(', ');

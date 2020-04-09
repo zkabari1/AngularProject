@@ -28,7 +28,6 @@ export class BlogItemService{
       }
     
       delete(blogItem) {
-        console.log(blogItem.id);
         return this.http.delete(`blogItems/${blogItem.id}`)
         .pipe(catchError(this.handleError));
       }
