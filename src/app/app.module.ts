@@ -9,11 +9,14 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {BlogItemFormComponent} from './blog-item-form.component';
 //import {BlogItemService} from './blog-item.service';
 import {lookupListToken,lookupList} from './providers';
+import {HttpClientModule, HttpXhrBackend} from '@angular/common/http';
+import {MockXHRBackend} from './mock-xhr.backend';
 
 @NgModule({
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
@@ -28,7 +31,8 @@ import {lookupListToken,lookupList} from './providers';
   ],
   providers:[
  //   BlogItemService,
-    {provide:lookupListToken,useValue:lookupList}
+    {provide:lookupListToken,useValue:lookupList},
+    {provide : HttpXhrBackend,useClass:MockXHRBackend}
   ]
 })
 export class AppModule {}

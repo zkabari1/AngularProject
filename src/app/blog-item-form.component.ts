@@ -25,7 +25,7 @@ export class BlogItemFormComponent implements OnInit{
         });
     }
     onSubmit(blogItem){
-        this.blogItemService.add(blogItem);
+        this.blogItemService.add(blogItem).subscribe();
     }
     
     dateValidator(control:FormControl){

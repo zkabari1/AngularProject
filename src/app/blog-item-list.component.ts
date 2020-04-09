@@ -1,5 +1,5 @@
 import {Component,OnInit} from '@angular/core';
-import {BlogItemService} from './blog-item.service';
+import {BlogItemService, BlogItem} from './blog-item.service';
 
 @Component({
     selector:'mb-blog-item-list',
@@ -8,13 +8,20 @@ import {BlogItemService} from './blog-item.service';
 })
 
 export class BlogItemListComponent implements OnInit{
-    blogItems;
-    constructor(private blogServiceItem : BlogItemService){}
-    ngOnInit(){
-        this.blogItems=this.blogServiceItem.get();
+    category='';
+    blogItems:BlogItem[];
+    constructor(private blogItemService : BlogItemService){}
+    ngOnInit() {
+        this.getBlogItems(this.category);
     }
     onBlogItemDelete(blogItem) { 
-        this.blogServiceItem.delete(blogItem);
+        this.blogItemService.delete(blogItem).subscribe(()=>{this.getBlogItems(this.category)});
     }
-    
+    getBlogItems(category) {
+        this.category = category;
+        this.blogItemService.get(category)
+          .subscribe(blogItems => {
+            this.blogItems = blogItems;
+          });
+      }
 } 

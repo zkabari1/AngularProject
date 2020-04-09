@@ -11,7 +11,6 @@ export class BlogItemComponent{
     @Input() blogItem;
     @Output() delete = new EventEmitter();
     onDelete(){
-        console.log('Deleted');
         this.delete.emit(this.blogItem);
     }
 } 
