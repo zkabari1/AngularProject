@@ -5,20 +5,19 @@ import { BlogItemComponent} from './blog-item.component';
 import { BlogItemListComponent } from './blog-item-list.component';
 import {FavoriteDirective} from './favorite.directive';
 import {CategoryListPipe} from './category.list.pipe';
-import {ReactiveFormsModule} from '@angular/forms';
-import {BlogItemFormComponent} from './blog-item-form.component';
 //import {BlogItemService} from './blog-item.service';
 import {lookupListToken,lookupList} from './providers';
 import {HttpClientModule, HttpXhrBackend} from '@angular/common/http';
 import {MockXHRBackend} from './mock-xhr.backend';
 import { routing } from './app.routing';
+import { NewItemModule } from './new-item/new-item.module';
 
 @NgModule({
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
     HttpClientModule,
-    routing
+    routing,
+    NewItemModule
   ],
   declarations: [
     AppComponent,
@@ -26,7 +25,6 @@ import { routing } from './app.routing';
     BlogItemListComponent,
     FavoriteDirective,
     CategoryListPipe,
-    BlogItemFormComponent
   ],
   bootstrap: [
     AppComponent
