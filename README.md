@@ -1,6 +1,6 @@
 Angular was designed by Google to address challenges programmers face building complex, single-page applications. This JavaScript platform provides a solid core of web functionality, letting you take care of the design and implementation details.
 
-In this project, I have exploit the essentials of this "superheroic" platform, including powerful features such as two-way data binding, comprehensive routing, and dependency injection. I have build a full-featured web app displaying blog from start to finish adding one feature at a time to the platform, focusing on the component-based architecture of Angular. You can add new blog or remove existing. Also you can filter blogs as per its genre. Other features includes:
+In this project, I have exploit the essentials of this "superheroic" platform, including powerful features such as two-way data binding, comprehensive routing, and dependency injection. I have build a full-featured web app displaying blog from start to finish adding one feature at a time to the platform, focusing on the component-based architecture of Angular. You can add new blog or remove existing. Also you can filter blogs as per its genre. Other angular features exploitated includes:
 
 - Binding events and properties
 - Getting data to components
