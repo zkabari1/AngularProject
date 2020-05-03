@@ -1,14 +1,14 @@
-<header 
-    [ngClass]="{'medium-movies':category === 'Action', 'medium-series':category === 'Romance'}">
-    <mb-category-list 
+<header
+    [ngClass]="{'medium-movies':category === 'Action', 'medium-series':category === 'Drama'}">
+    <mb-category-list
       *ngIf="blogItems"
       [categories]="blogItems | categoryList">
     </mb-category-list>
     </header>
 <section>
   <mb-blog-item
-    [ngClass]="{'medium-movies': blogItem.category==='Action', 
-    'medium-series':blogItem.category==='Romance'}" 
+    [ngClass]="{'medium-movies': blogItem.category==='Action',
+    'medium-series':blogItem.category==='Drama'}"
     *ngFor="let blogItem of blogItems"
     [blogItem]="blogItem"
     (delete)="onBlogItemDelete($event)"></mb-blog-item>
